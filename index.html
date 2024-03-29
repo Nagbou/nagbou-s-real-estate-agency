@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html lang="en">
+    <title>Mahmoud's agency</title>
+    <!---------------------------- bootstrap --------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!---------------------------- css & js --------------------->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!---------------------------- fav icon --------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap"
+        rel="stylesheet">
+    <!---------------------------- fonts --------------------->
+    <script src="https://kit.fontawesome.com/f179b30ed1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="landing_img" id="landing_img">
+        <!-- <img src="imgs/bg.jpg" alt=""> -->
+        <div class="navbar_elemnts_container">
+            <h5 class="navbar_elemnt"><a href="#category_section">Category</a></h5>
+            <h5 class="navbar_elemnt"><a href="#about_section">About</a> </h5>
+            <h5 class="navbar_elemnt"><a href="#contact_section">Contact</a></h5>
+        </div>
+        <h2 class="landing_img_header">Unlocking doors <br> tou your dream home</h2>
+        <div class="input-group mb-3 landing_img_input">
+            <input type="text" id="search_input" class="form-control landing_img_search_box"
+                placeholder="Try luxury home" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary landing_img_search_box_btn" onclick="search()" type="button"
+                id="search_btn">Search
+                <i class="fa-solid fa-magnifying-glass ms-2"></i></button>
+        </div>
+    </div>
+    <div class="about_section row" id="about_section">
+        <div class="col-6">
+            <h2 class="about_section_header vertical_yellow_box">Who are we ?</h2>
+            <p class="about_section_para vertical_yellow_box mt-3">Welcome to Mahmoud’s ageny, where excellence meets
+                expertise in real estate. With a passion for matching clients with their ideal properties,
+                we specialize in providing tailored solutions and unparalleled service. Backed by a team of seasoned
+                professionals, we are dedicated to guiding you through every step of your real estate journey, ensuring
+                a
+                seamless and rewarding experience. Whether you're buying, selling, or investing, trust us to exceed your
+                expectations and unlock the door to your dream property.</p>
+        </div>
+        <div class="col-4 learn_more">
+            <img src="imgs/HC (2).jpg" alt="" class="img_about">
+            <button class="view_more" onclick="goAbout()">Learn more</button>
+        </div>
+    </div>
+    <div class="category_section" id="category_section">
+        <h2 class="category_section_header vertical_yellow_box">Search based on category</h2>
+        <div class="cards_container mt-5">
+            <div class="card " style="width: 18rem;" onclick="residential()">
+                <img src="imgs/H (8).jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="card_body_header">Residential</div>
+                    <p class="card-text">Discover your ideal home in our residential
+                        category. From city apartments to countryside
+                        estates, we offer a diverse range of properties to suit every lifestyle. Let us help you find
+                        the
+                        perfect place to call home</p>
+                </div>
+            </div>
+            <div class="card " style="width: 18rem;" onclick="luxury()">
+                <img src="imgs/H (9).jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="card_body_header ms-3">Luxury</div>
+                    <p class="card-text">
+                        Experience luxury redefined. From lavish waterfront estates to exquisite pentwaterfront estates
+                        to exquisite penthouses, our
+                        collection offers the epitome of refinement. Let us guide you to your dream home.</p>
+                </div>
+            </div>
+            <div class="card " style="width: 18rem;" onclick="commercial()">
+                <img src="imgs/H (7).jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="card_body_header">Commercial</div>
+                    <p class="card-text">Discover prime commercial opportunities with us. From retail spaces to office
+                        buildings, we offer diverse options for your business needs. Let's find the perfect space to
+                        elevate your ventures.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="review_section">
+        <h2 class="review_section_header vertical_yellow_box">Our client's opinion</h2>
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="slide_body">
+                        <h4 class="client_name vertical_yellow_box">Mahdi Bouhlel</h4>
+                        <p class="client_review vertical_yellow_box">"Exceptional service! From the moment we contacted
+                            them, the team at
+                            Mahmoud's agency went above and beyond to help us find our dream home. Their expertise and
+                            attention to detail made the entire process smooth and stress-free. Highly recommend!"</p>
+                        <img src="imgs/H (11).jpg" alt="" class="slide_img">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide_body">
+                        <h4 class="client_name vertical_yellow_box">Samir Elzehi</h4>
+                        <p class="client_review vertical_yellow_box">"Top-notch agency! The team at Mahmoud's agency
+                            made
+                            buying our first home a breeze. Their personalized approach and unwavering support made us
+                            feel confident every step of the way. We couldn't have asked for a better experience. Thank
+                            you!"</p>
+                        <img src="imgs/H (2).jpg" alt="" class="slide_img">
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="slide_body">
+                        <h4 class="client_name vertical_yellow_box">Ahmed Mohsen</h4>
+                        <p class="client_review vertical_yellow_box">"Working with Mahmoud's agency was a pleasure.
+                            Their
+                            professionalism and dedication to finding the perfect property for us were unmatched. We
+                            couldn't be happier with the results. Thank you for making our real estate experience truly
+                            memorable!"</p>
+                        <img src="imgs/H (5).jpg" alt="" class="slide_img">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="contact_section" id="contact_section">
+        <h2 class="contact_section_header vertical_yellow_box">Contact us</h2>
+        <div class="contact_section_body row">
+            <div class="infos col-6">
+                <h4 class="contact_infos vertical_white_box">+216 28.521.123</h4>
+                <h4 class="contact_infos vertical_white_box">+216 58.521.133</h4>
+                <h4 class="contact_infos vertical_white_box">Mahmoud's agency</h4>
+                <h4 class="contact_infos vertical_white_box">Mahmoudsagency@gmail.com</h4>
+            </div>
+            <div class="map col-6">
+                <img src="imgs/map.jpeg" alt="" class="map_img" id="map_img">
+                <div class="map_text">22 Rue Habib Bourgiba Tunis, Tunisia</div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <i class="fa-solid fa-address-book contact_btn" id="contact_btn" title="get help"></i>
+        <i class="fa-solid fa-house home_btn" id="home_btn" title="exit"></i>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
