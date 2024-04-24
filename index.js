@@ -1,8 +1,8 @@
 var category = ["category", "luxury", "residential", "home", "commercial", "house", "houses", "shop"];
-var contact = ["contact", "phone", "map", "call", "email", "address", "visit","help",
+var contact = ["contact", "phone", "map", "call", "email", "address", "visit", "help",
     "location", "reach out", "message", "get in touch", "reach", "communicate", "connect", "info", "directions"];
 var about = ["about", "us", "who", "what", "our", "story", "mission", "vision",
-    "history", "team", "values", "philosophy", "background", "purpose", "overview","location"];
+    "history", "team", "values", "philosophy", "background", "purpose", "overview", "location"];
 
 const search_btn = document.getElementById("search_btn")
 var search_input = document.getElementById("search_input");
@@ -116,6 +116,10 @@ var contact_btn = document.getElementById("contact_btn");
 contact_btn.addEventListener("click", function () {
     window.location.href = "contact.html";
 });
+
+function login() {
+    window.location.href = "login.html"
+}
 
 var map_img = document.getElementById("map_img")
 var url_map = "https://www.google.com/maps/place/ISIG+(Institut+Sup%C3%A9rieur+D'informatique+Et+De+Gestion)/@35.6767118,10.1028139,17z/data=!3m1!4b1!4m6!3m5!1s0x12fdc538fbf86c21:0xe96d05a32fb5ca07!8m2!3d35.6767075!4d10.1053888!16s%2Fg%2F1td2pl6k?entry=ttu"

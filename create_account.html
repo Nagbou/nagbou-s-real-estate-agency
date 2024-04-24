@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <html lang="en">
+    <title>Create an account</title>
+    <!---------------------------- bootstrap --------------------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!---------------------------- css & js --------------------->
+    <link rel="stylesheet" type="text/css" href="create_account.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <!---------------------------- fav icon --------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap"
+        rel="stylesheet">
+    <!---------------------------- fonts --------------------->
+    <script src="https://kit.fontawesome.com/f179b30ed1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="input_container">
+            <h1 class="header">Create an account</h1>
+            <input type="text" class="input_box me-4" placeholder="Your first name" id="first_name">
+            <input type="text" class="input_box" placeholder="Your last name" id="last_name"><br>
+            <input type="text" class="input_box me-4" placeholder="Your e-mail" id="email"><input type="number"
+                id="phone" name="phone" class="input_box" maxlength="8" placeholder="Your phone number"><br>
+            <input type="password" class="input_box me-4" placeholder="Your password" id="pwd1">
+            <i class="fa-regular fa-eye-slash" style="margin-left: -50px;" onclick="showHide()"></i>
+            <input type="password" class="input_box mb-3" placeholder="Confirm password" id="pwd2">
+            <i class="fa-regular fa-eye-slash" onclick="showHide2()"></i>
+            <br>
+
+            <small class="create_account link" onclick="login()">Have an account already ?</small>
+            <button class="submit_btn" id="submit_btn">Create</button>
+        </div>
+    </div>
+
+
+
+    <div class="">
+        <i class="fa-solid fa-address-book contact_btn" id="contact_btn" title="get help"></i>
+        <i class="fa-solid fa-house home_btn" id="home_btn" title="exit"></i>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDGO6WpPcxlyPH0ZkBcJb9viPaePzFYuvc",
+            authDomain: "real-eastate-25452.firebaseapp.com",
+            projectId: "real-eastate-25452",
+            storageBucket: "real-eastate-25452.appspot.com",
+            messagingSenderId: "997789363516",
+            appId: "1:997789363516:web:64732832328adcfebc0239"
+        };
+
+        // Initialize Firebase
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth();
+        document.getElementById("submit_btn").addEventListener("click", function (e) {
+
+
+            var username = document.getElementById("first_name").value
+            var email = document.getElementById("email").value
+            var password = document.getElementById("pwd2").value
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed up
+                    const user = userCredential.user;
+                    set(ref(db, 'user/' + document.getElementById("first_name").value), {
+                        username: document.getElementById("first_name").value,
+                        email: document.getElementById("email").value,
+                        phoneNumber: document.getElementById("phone").value,
+                    })
+                    alert("user created")
+
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    // ..
+                    alert(errorMessage)
+                });
+
+            alert("created !")
+        })
+    </script>
+    <script src="create_account.js"></script>
+</body>
+
+</html>

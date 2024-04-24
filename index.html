@@ -15,10 +15,6 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <!---------------------------- fav icon --------------------->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -34,6 +30,7 @@
             <h5 class="navbar_elemnt"><a href="#category_section">Category</a></h5>
             <h5 class="navbar_elemnt"><a href="#about_section">About</a> </h5>
             <h5 class="navbar_elemnt"><a href="#contact_section">Contact</a></h5>
+            <h5 class="navbar_elemnt" onclick="login()" id="login">Login</h5>
         </div>
         <h2 class="landing_img_header">Unlocking doors <br> to your dream home</h2>
         <div class="input-group mb-3 landing_img_input">
@@ -156,8 +153,8 @@
         <h2 class="contact_section_header vertical_yellow_box">Contact us</h2>
         <div class="contact_section_body row">
             <div class="infos col-6">
-                <h4 class="contact_infos vertical_white_box">+216 28.521.123</h4>
-                <h4 class="contact_infos vertical_white_box">+216 58.521.133</h4>
+                <h4 class="contact_infos vertical_white_box">+216 86.321.123</h4>
+                <h4 class="contact_infos vertical_white_box">+216 76.121.123</h4>
                 <h4 class="contact_infos vertical_white_box">Mahmoud's agency</h4>
                 <h4 class="contact_infos vertical_white_box">Mahmoudsagency@gmail.com</h4>
             </div>
@@ -171,7 +168,56 @@
         <i class="fa-solid fa-address-book contact_btn" id="contact_btn" title="get help"></i>
         <i class="fa-solid fa-house home_btn" id="home_btn" title="exit"></i>
     </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDGO6WpPcxlyPH0ZkBcJb9viPaePzFYuvc",
+            authDomain: "real-eastate-25452.firebaseapp.com",
+            projectId: "real-eastate-25452",
+            storageBucket: "real-eastate-25452.appspot.com",
+            messagingSenderId: "997789363516",
+            appId: "1:997789363516:web:64732832328adcfebc0239"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Function to update login/logout button
+        function updateLoginButton(user) {
+            const loginButton = document.getElementById("login");
+            if (user) {
+                loginButton.textContent = "Logout";
+                loginButton.setAttribute("id", "logout");
+                loginButton.addEventListener("click", () => {
+                    signOut(auth)
+                        .then(() => {
+                            console.log("User signed out successfully");
+                            window.location.href = "index.html"
+                            loginButton.textContent = "Login";
+                            loginButton.setAttribute("id", "login");
+                        })
+                        .catch((error) => {
+                            console.error("Error signing out:", error);
+                        });
+                });
+            } else {
+                loginButton.textContent = "Login";
+                loginButton.setAttribute("id", "login");
+                // Add login functionality here
+            }
+        }
+
+        // Listen for authentication state changes
+        onAuthStateChanged(auth, (user) => {
+            updateLoginButton(user);
+        });
+    </script>
     <script src="index.js"></script>
 </body>
 

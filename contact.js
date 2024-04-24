@@ -1,21 +1,21 @@
-function submit() {
-    var nameInput = document.getElementById("name");
-    var nameValue = nameInput.value;
-    var nameParts = nameValue.split(" ");
-    var firstName = nameParts[0];
-    var phone_input = document.getElementById("phone")
-    var phone = phone_input.value
-    if (checkName(firstName) && checkPhone(phone)) {
-        alert("Thank You " + firstName.charAt(0).toUpperCase() + firstName.slice(1) + " for your time. We will certainly call you on this phone number: " + phone)
-        location.reload()
-    } else {
-        if (checkName(firstName)) {
-            alert("please enter a valid phone number")
-        } else {
-            alert("Please enter a valid name containing only alphabetical characters.");
-        }
-    }
-}
+// function submit() {
+//     var nameInput = document.getElementById("name");
+//     var nameValue = nameInput.value;
+//     var nameParts = nameValue.split(" ");
+//     var firstName = nameParts[0];
+//     var phone_input = document.getElementById("phone")
+//     var phone = phone_input.value
+//     if (checkName(firstName) && checkPhone(phone)) {
+//         alert("Thank You " + firstName.charAt(0).toUpperCase() + firstName.slice(1) + " for your time. We will certainly call you on this phone number: " + phone)
+//         location.reload()
+//     } else {
+//         if (checkName(firstName)) {
+//             alert("please enter a valid phone number")
+//         } else {
+//             alert("Please enter a valid name containing only alphabetical characters.");
+//         }
+//     }
+// }
 
 function checkName(name) {
     var alpha = /^[A-Za-z]+$/;
